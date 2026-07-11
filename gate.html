@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Memento Vivere</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+main{
+    max-width:560px;
+}
+
+.question{
+    margin-top:20px;
+    margin-bottom:14px;
+    font-size:1rem;
+}
+
+input{
+    width:100%;
+    border:none;
+    border-bottom:1px solid #bdbdbd;
+    background:transparent;
+    padding:12px 0;
+    font-size:1rem;
+    font-family:'Inter',sans-serif;
+    outline:none;
+}
+
+input::placeholder{
+    color:#b3b3b3;
+}
+
+button{
+    margin-top:28px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+    color:#222;
+    font-family:'Inter',sans-serif;
+}
+
+button:hover{
+    opacity:.65;
+}
+
+#message{
+    margin-top:34px;
+    color:#8a8a8a;
+    font-style:italic;
+    min-height:24px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Memento Vivere</h1>
+
+<p class="tagline">
+Some pages are not opened by chance.
+</p>
+
+</header>
+
+<div class="intro-line"></div>
+
+<main>
+
+<p>
+
+Before entering,
+
+</p>
+
+<p class="question">
+
+Write the words that brought you here.
+
+</p>
+
+<input
+id="answer"
+type="text"
+placeholder="two words">
+
+<button onclick="checkAnswer()">
+
+continue →
+
+</button>
+
+<p id="message"></p>
+
+</main>
+
+<script>
+
+function checkAnswer(){
+
+let answer=document
+.getElementById("answer")
+.value
+.toLowerCase()
+.trim();
+
+if(
+answer==="memento vivere"
+){
+
+window.location.href="memento-vivere.html";
+
+}
+
+else{
+
+const lines=[
+
+"Not every page opens on the first attempt.",
+
+"Perhaps another memory holds the key.",
+
+"Trust memory before certainty.",
+
+"Some pages wait for the right reader.",
+
+"The door remembers what the mind forgets."
+
+];
+
+let random=
+lines[Math.floor(Math.random()*lines.length)];
+
+document.getElementById("message")
+.innerHTML=random;
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
